@@ -11,14 +11,7 @@ public class Kodune1 {
 	private static Matcher matcher;
 	
 	public static void main(String[] args) {
-		System.out.println(emailVerifier("mari.maasikas@hot.ee")); // true
-		System.out.println(emailVerifier(".marimaasikas@hot.ee")); // false
-		System.out.println(emailVerifier("b4n4n4@gmail.com")); // true
-		System.out.println(emailVerifier("t.e.r.e@tere")); // false
-		System.out.println(emailVerifier("email@tere.e")); // false
-		System.out.println(getDomain("iti0011@cs.ttu.ee")); // cs.ttu.ee
-		System.out.println(getDomain("mail.ee")); // NULL	
-		System.out.println(getDomain("salakris@gmail.com")); // gmail.com
+	
 	}
  
 	/**
