@@ -5,45 +5,49 @@ public class Calc {
     public static final int JUNIOR = 1;
     public static final int SENIOR = 2;
     public static final int SPECIALIST = 3;
+    
+    int wage;
 
-    // Screen test
     public static void main(final String[] args) {
-        Calc c = new Calc();
-        System.err.println(c.pay(SPECIALIST, 3) + " should be 66");
+        
     }
-
-    protected int pay(final int type,final int h) {
-        int Sum = 0;
-        if (type == JUNIOR) {
-            if (h > 8) { // if longer than eight hours
-                Sum = 10 * (h - 8) * 2; // double pay
-                Sum += 10 * 8;
-            } else {
-                Sum += 10 * h;
-            }
-        } else if (type == SENIOR) {
-            if (h > 8) { // if longer than eight hours
-                Sum = 15 * (h - 8) * 2; // double pay
-                Sum += 15 * 8;
-            } else {
-                Sum += 15 * h;
-            }
-        } else if (type == SPECIALIST) {
-            if (h > 9) { // if longer than nine hours
-                Sum = 22 * (h - 9) * 3; // triple pay after 9 hours
-                Sum += 22 * 9;
-            } else {
-                Sum += 22 * h;
-            }
-        } else if (h > 20) { // hero bonus
-            if (type == JUNIOR) {
-                Sum += 10;
-            } else if (type == SENIOR) {
-                Sum += 20;
-            } else if (type == SPECIALIST) {
-                Sum += 30;
-            }
+    protected int juniorWage(final int type,final int workingHours) {
+    	wage = 0;
+        if (workingHours > 8) { // if longer than eight hours
+        	wage = 10 * (workingHours - 8) * 2; // double pay
+            wage += 10 * 8;
+            if (workingHours>20){
+                wage+=10;
+                }
+        }else {
+            wage += 10 * workingHours;
         }
-        return Sum;
+        return wage;
+    }
+    protected int seniorWage(final int type, final int workingHours){
+    	wage = 0;
+        if (workingHours > 8) { // if longer than eight hours
+            wage = 15 * (workingHours - 8) * 2; // double pay
+            wage += 15 * 8;
+            if (workingHours>20) {
+                wage += 20;
+            }	
+        }else {
+            wage += 15 * workingHours;
+        }
+        return wage;
+    }
+    protected int specialistWage(final int type, final int workingHours){
+    	wage = 0;
+        if (workingHours > 9) { // if longer than nine hours
+        	wage = 22 * (workingHours - 9) * 3; // triple pay after 9 hours
+            wage += 22 * 9;
+            if (workingHours>20){
+                wage +=30;
+            }
+        } else {
+            wage += 22 * workingHours;
+        }
+        return wage;
     }
 }
